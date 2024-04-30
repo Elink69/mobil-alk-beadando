@@ -2,22 +2,33 @@ package com.gzn1ev.aramlejelentes;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.gzn1ev.aramlejelentes.R;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG =MainActivity.class.getName();
+public class MainActivity extends AppCompatActivity{
+    private static final String TAG = MainActivity.class.getName();
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-    
+
+    private BottomNavigationView bottomNavigationView;
+    private MainPageFragment mainPageFragment = new MainPageFragment();
+    private BillsPageFragment billsPageFragment = new BillsPageFragment();
+    private ProfilePageFragment profilePageFragment = new ProfilePageFragment();
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +40,28 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        
+
+        bottomNavigationView = findViewById(R.id.bottomNav);
+
+        loadNavFragment(mainPageFragment);
+
+        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
+            int itemId = menuItem.getItemId();
+            if(itemId == R.id.dashboard_menu) {
+                loadNavFragment(mainPageFragment);
+                return true;
+            }
+            else if (itemId == R.id.bills_menu){
+                loadNavFragment(billsPageFragment);
+                return true;
+            }
+            else if (itemId == R.id.profile_menu) {
+                loadNavFragment(profilePageFragment);
+                return true;
+            }
+            return false;
+        });
+
         mAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
         
@@ -39,5 +71,13 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Nem authentikált felhasználó");
             finish();
         }
+    }
+
+    private void  loadNavFragment(Fragment fragment){
+        FragmentManager fragmentManager= getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
+
+        fragmentTransaction.replace(R.id.mainLayout, fragment);
+        fragmentTransaction.commit();
     }
 }

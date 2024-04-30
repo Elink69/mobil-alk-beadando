@@ -48,4 +48,5 @@ dependencies {
     implementation(libs.recyclerview)
     implementation(libs.recyclerview.selection)
     implementation(libs.glide)
+    implementation(libs.speedviewlib)
 }

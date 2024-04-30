@@ -14,10 +14,18 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="name">Név</string>
-    <string name="passwordAgain">Jelszó újra</string>
+    <string name="password_again">Jelszó újra</string>
     <string name="email">Email</string>
     <string name="cancel">Mégse</string>
     <string name="bills">Számlák</string>
     <string name="dashboard">Főoldal</string>
     <string name="profile">Profil</string>
+    <string name="submit_meter">Mérőóra állás bejelentés</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="bills_page_fragment">Bills Page Fragment</string>
+    <string name="profile_page_fragment">Profile Page Fragment</string>
+    <!-- TODO: Vége-->
+    <string name="meter_state">Mérőóra állás</string>
+    <string name="kwh">kWh</string>
+    <string name="bejelentes">Bejelentés</string>
 </resources>

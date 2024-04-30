@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainPageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <com.github.anastr.speedviewlib.TubeSpeedometer
+        android:id="@+id/tubeSpeedometer"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:sv_speedTextFormat="INTEGER"
+        app:sv_unit="@string/kwh"
+        app:sv_unitSpeedInterval="5dp"
+        app:sv_speedometerBackColor="@color/md_blue_grey_100"
+        app:sv_indicatorColor="@color/md_blue_800"
+        app:sv_maxSpeed="320"
+        app:sv_withTremble="false"
+        app:sv_indicator="KiteIndicator"
+        app:sv_indicatorWidth="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <TextView
+        android:id="@+id/textViewOraBejelentes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit_meter"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tubeSpeedometer"
+        app:layout_constraintVertical_bias="0.161" />
+
+    <EditText
+        android:id="@+id/editTextOraBejelentes"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/meter_state"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:gravity="center_vertical|end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.447"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOraBejelentes"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <TextView
+        android:id="@+id/kWh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kwh"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toEndOf="@+id/editTextOraBejelentes"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOraBejelentes"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <Button
+        android:id="@+id/submitMeter"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/bejelentes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextOraBejelentes"
+        app:layout_constraintVertical_bias="0.04" />
+</androidx.constraintlayout.widget.ConstraintLayout>

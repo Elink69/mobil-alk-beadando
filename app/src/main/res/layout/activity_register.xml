@@ -73,7 +73,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="@string/passwordAgain"
+        android:hint="@string/password_again"
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
