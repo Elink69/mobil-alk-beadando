@@ -28,4 +28,53 @@
     <string name="meter_state">Mérőóra állás</string>
     <string name="kwh">kWh</string>
     <string name="bejelentes">Bejelentés</string>
+    <string name="idPlaceholder">123123124-12312312-412412</string>
+    <string name="titlePlaceholder">Title Placeholder</string>
+    <string name="billPricePlaceholder">12345 Forint</string>
+    <string name="billDatePlaceholder">2024/05/10-2024/06/10</string>
+
+    <string-array name="cardTitles">
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+    </string-array>
+
+    <string-array name="billDates">
+        <item>2024/01/11-2024/02/10</item>
+        <item>2024/02/11-2024/03/10</item>
+        <item>2024/03/11-2024/04/10</item>
+        <item>2024/04/11-2024/05/10</item>
+        <item>2024/05/11-2024/06/10</item>
+        <item>2024/06/11-2024/07/10</item>
+    </string-array>
+
+    <string-array name="billIds">
+        <item>123456789-123456789-1</item>
+        <item>123456789-123456789-2</item>
+        <item>123456789-123456789-3</item>
+        <item>123456789-123456789-4</item>
+        <item>123456789-123456789-5</item>
+        <item>123456789-123456789-6</item>
+    </string-array>
+
+    <string-array name="billPrices">
+        <item>14287 Ft</item>
+        <item>21954 Ft</item>
+        <item>17362 Ft</item>
+        <item>28493 Ft</item>
+        <item>15678 Ft</item>
+        <item>23109 Ft</item>
+    </string-array>
+
+    <array name="billIsPaid">
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+    </array>
 </resources>

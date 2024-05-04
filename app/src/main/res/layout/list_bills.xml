@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="2dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="96dp"
+        android:background="@color/md_grey_200">
+
+        <ImageView
+            android:id="@+id/receiptIcon"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_margin="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/receipt_long"/>
+
+        <TextView
+            android:id="@+id/cardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titlePlaceholder"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@id/receiptIcon"/>
+
+        <TextView
+            android:id="@+id/billDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:layout_below="@+id/cardTitle"
+            android:layout_alignEnd="@+id/cardTitle"
+            android:text="@string/billDatePlaceholder"
+            />
+
+        <TextView
+            android:id="@+id/billId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/idPlaceholder"
+            android:layout_alignParentEnd="true"
+            android:textSize="11sp"
+            android:textColor="@color/md_grey_400"
+            android:layout_marginTop="80dp"/>
+
+        <TextView
+            android:id="@+id/billPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/billPricePlaceholder"
+            android:textSize="16sp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
