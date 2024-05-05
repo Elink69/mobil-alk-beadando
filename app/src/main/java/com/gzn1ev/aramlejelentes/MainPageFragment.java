@@ -21,8 +21,6 @@ public class MainPageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main_page, container, false);
-        TransitionInflater transitionInflater = TransitionInflater.from(requireContext());
-        setExitTransition(transitionInflater.inflateTransition(R.transition.fade));
         TubeSpeedometer gauge = view.findViewById(R.id.tubeSpeedometer);
         gauge.speedTo(150);
 

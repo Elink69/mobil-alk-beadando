@@ -15,10 +15,6 @@ public class BillsPageFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        TransitionInflater transitionInflater = TransitionInflater.from(requireContext());
-        setEnterTransition(transitionInflater.inflateTransition(R.transition.slide_right));
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bills_page, container, false);
     }
 

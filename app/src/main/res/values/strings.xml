@@ -28,4 +28,5 @@
     <string name="meter_state">Mérőóra állás</string>
     <string name="kwh">kWh</string>
     <string name="bejelentes">Bejelentés</string>
+    <string name="yearlyUse">Eddigi éves használat</string>
 </resources>

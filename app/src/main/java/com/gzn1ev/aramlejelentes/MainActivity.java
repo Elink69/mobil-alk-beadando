@@ -1,5 +1,7 @@
 package com.gzn1ev.aramlejelentes;
 
+import static androidx.navigation.ui.NavigationUI.setupWithNavController;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -29,7 +33,7 @@ public class MainActivity extends AppCompatActivity{
     private MainPageFragment mainPageFragment = new MainPageFragment();
     private BillsPageFragment billsPageFragment = new BillsPageFragment();
     private ProfilePageFragment profilePageFragment = new ProfilePageFragment();
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,41 +47,18 @@ public class MainActivity extends AppCompatActivity{
 
         bottomNavigationView = findViewById(R.id.bottomNav);
 
-        loadNavFragment(mainPageFragment);
-
-        bottomNavigationView.setOnItemSelectedListener(menuItem -> {
-            int itemId = menuItem.getItemId();
-            if(itemId == R.id.dashboard_menu) {
-                loadNavFragment(mainPageFragment);
-                return true;
-            }
-            else if (itemId == R.id.bills_menu){
-                loadNavFragment(billsPageFragment);
-                return true;
-            }
-            else if (itemId == R.id.profile_menu) {
-                loadNavFragment(profilePageFragment);
-                return true;
-            }
-            return false;
-        });
+        NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.mainLayout);
+        NavController navController = navHostFragment.getNavController();
+        setupWithNavController(bottomNavigationView, navController);
 
         mAuth = FirebaseAuth.getInstance();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        
+
         if (user != null){
             Log.d(TAG, "Authentikált felhasználó");
         }else {
             Log.d(TAG, "Nem authentikált felhasználó");
             finish();
         }
-    }
-
-    private void  loadNavFragment(Fragment fragment){
-        FragmentManager fragmentManager= getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
-
-        fragmentTransaction.replace(R.id.mainLayout, fragment);
-        fragmentTransaction.commit();
     }
 }

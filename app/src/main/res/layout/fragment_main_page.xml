@@ -6,27 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".MainPageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yearlyUse"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/tubeSpeedometer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.821" />
 
     <com.github.anastr.speedviewlib.TubeSpeedometer
         android:id="@+id/tubeSpeedometer"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:sv_speedTextFormat="INTEGER"
-        app:sv_unit="@string/kwh"
-        app:sv_unitSpeedInterval="5dp"
-        app:sv_speedometerBackColor="@color/md_blue_grey_100"
-        app:sv_indicatorColor="@color/md_blue_800"
-        app:sv_maxSpeed="320"
-        app:sv_withTremble="false"
-        app:sv_indicator="KiteIndicator"
-        app:sv_indicatorWidth="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.292"
+        app:sv_indicator="KiteIndicator"
+        app:sv_indicatorColor="@color/md_blue_800"
+        app:sv_indicatorWidth="10dp"
+        app:sv_maxSpeed="320"
+        app:sv_speedTextFormat="INTEGER"
+        app:sv_speedometerBackColor="@color/md_blue_grey_100"
+        app:sv_unit="@string/kwh"
+        app:sv_unitSpeedInterval="5dp"
+        app:sv_withTremble="false" />
 
     <TextView
         android:id="@+id/textViewOraBejelentes"
@@ -68,7 +77,7 @@
         app:layout_constraintHorizontal_bias="0.241"
         app:layout_constraintStart_toEndOf="@+id/editTextOraBejelentes"
         app:layout_constraintTop_toBottomOf="@+id/textViewOraBejelentes"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.115" />
 
     <Button
         android:id="@+id/submitMeter"
@@ -76,6 +85,7 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:text="@string/bejelentes"
+        android:backgroundTint="@color/md_light_blue_A700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
