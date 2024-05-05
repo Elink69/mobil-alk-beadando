@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity{
     private FirebaseUser user;
 
     private BottomNavigationView bottomNavigationView;
-    private MainPageFragment mainPageFragment = new MainPageFragment();
-    private BillsPageFragment billsPageFragment = new BillsPageFragment();
-    private ProfilePageFragment profilePageFragment = new ProfilePageFragment();
-
+    private final MainPageFragment mainPageFragment = new MainPageFragment();
+    private final BillsPageFragment billsPageFragment = new BillsPageFragment();
+    private final ProfilePageFragment profilePageFragment = new ProfilePageFragment();
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
