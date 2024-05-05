@@ -32,8 +32,17 @@
     <string name="titlePlaceholder">Title Placeholder</string>
     <string name="billPricePlaceholder">12345 Forint</string>
     <string name="billDatePlaceholder">2024/05/10-2024/06/10</string>
+    <string name="billPrice">Számla díja:</string>
+    <string name="payBill">Befizet</string>
+    <string name="ervenyesIdoszak">Érvényes időszak:</string>
+    <string name="befizetesIdopontja">Befizetés időpontja:</string>
+    <string name="befizetesIdopontjaPlaceholder">2024/06/14 16:54</string>
 
     <string-array name="cardTitles">
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
+        <item>Havi fogyasztási díj</item>
         <item>Havi fogyasztási díj</item>
         <item>Havi fogyasztási díj</item>
         <item>Havi fogyasztási díj</item>
@@ -49,6 +58,10 @@
         <item>2024/04/11-2024/05/10</item>
         <item>2024/05/11-2024/06/10</item>
         <item>2024/06/11-2024/07/10</item>
+        <item>2024/07/11-2024/08/10</item>
+        <item>2024/08/11-2024/09/10</item>
+        <item>2024/09/11-2024/10/10</item>
+        <item>2024/10/11-2024/11/10</item>
     </string-array>
 
     <string-array name="billIds">
@@ -58,6 +71,10 @@
         <item>123456789-123456789-4</item>
         <item>123456789-123456789-5</item>
         <item>123456789-123456789-6</item>
+        <item>123456789-123456789-7</item>
+        <item>123456789-123456789-8</item>
+        <item>123456789-123456789-9</item>
+        <item>123456789-123456789-10</item>
     </string-array>
 
     <string-array name="billPrices">
@@ -67,9 +84,17 @@
         <item>28493 Ft</item>
         <item>15678 Ft</item>
         <item>23109 Ft</item>
+        <item>23109 Ft</item>
+        <item>23109 Ft</item>
+        <item>23109 Ft</item>
+        <item>23109 Ft</item>
     </string-array>
 
     <array name="billIsPaid">
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
         <item>true</item>
         <item>true</item>
         <item>true</item>

@@ -12,6 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class BillsPageFragment extends Fragment {
@@ -19,6 +22,7 @@ public class BillsPageFragment extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<Bill> itemList;
     private BillsAdapter adapter;
+    private FirebaseUser user;
 
     public BillsPageFragment(){}
 
@@ -45,8 +49,10 @@ public class BillsPageFragment extends Fragment {
         TypedArray billIsPaid = getResources().obtainTypedArray(R.array.billIsPaid);
         itemList.clear();
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
         for (int i = 0; i < cardTitle.length; i++) {
-            itemList.add(new Bill(billId[i], cardTitle[i], billPrice[i], billDate[i], billIsPaid.getBoolean(i, true)));
+            itemList.add(new Bill(billId[i], cardTitle[i], billPrice[i], billDate[i], billIsPaid.getBoolean(i, true), user.getEmail()));
         }
 
         adapter.notifyDataSetChanged();

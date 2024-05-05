@@ -1,6 +1,7 @@
 package com.gzn1ev.aramlejelentes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +53,6 @@ public class BillsAdapter extends RecyclerView.Adapter<BillsAdapter.BillsViewHol
 
     @Override
     public int getItemCount() {
-        Log.d(TAG, "getItemCount: " + bills.size());
         return bills.size();
     }
 
@@ -71,7 +71,8 @@ public class BillsAdapter extends RecyclerView.Adapter<BillsAdapter.BillsViewHol
             billPrice = itemView.findViewById(R.id.billPrice);
             itemView.setOnClickListener(v -> {
                 if (v instanceof CardView){
-                    Log.d(TAG, "BillsViewHolder: Clicked on a card");
+                    Intent intent = new Intent(context, BillDetails.class);
+                    context.startActivity(intent);
                 }
             });
         }
