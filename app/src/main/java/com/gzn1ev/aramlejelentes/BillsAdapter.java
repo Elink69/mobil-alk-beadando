@@ -2,7 +2,6 @@ package com.gzn1ev.aramlejelentes;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,57 +13,41 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-import java.util.*;
-
-public class BillsAdapter extends RecyclerView.Adapter<BillsAdapter.BillsViewHolder> {
-    private static final String TAG = "BillsAdapter";
+public class BillsAdapter extends FirestoreRecyclerAdapter<Bill, BillsAdapter.BillsViewHolder> {
 
     private Context context;
-    private ArrayList<Bill> bills;
-    private ArrayList<Bill> billsAll;
-    private int lastPosition = -1;
-
-    public BillsAdapter(Context context, ArrayList<Bill> bills) {
+    public BillsAdapter(@NonNull FirestoreRecyclerOptions<Bill> options, Context context) {
+        super(options);
         this.context = context;
-        this.bills = bills;
-        this.billsAll = bills;
+    }
+
+    @Override
+    protected void onBindViewHolder(@NonNull BillsViewHolder billsViewHolder, int i, @NonNull Bill bill) {
+        billsViewHolder.cardTitle.setText(bill.getTitle());
+        billsViewHolder.billId.setText(bill.getMId());
+        billsViewHolder.billDate.setText(bill.getDate());
+        billsViewHolder.billPrice.setText(bill.getPrice());
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_row);
+        billsViewHolder.itemView.startAnimation(animation);
     }
 
     @NonNull
     @Override
     public BillsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new BillsViewHolder(LayoutInflater.from(context).inflate(R.layout.list_bills, parent, false));
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull BillsViewHolder holder, int position) {
-        Bill currentBill = bills.get(position);
-
-        holder.bindTo(currentBill);
-
-        if (holder.getAbsoluteAdapterPosition() > lastPosition) {
-               Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
-               holder.itemView.startAnimation(animation);
-               lastPosition = holder.getAbsoluteAdapterPosition();
-        }
-    }
-
-    @Override
-    public int getItemCount() {
-        return bills.size();
+        return new BillsViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.list_bills, parent, false));
     }
 
     public class BillsViewHolder extends RecyclerView.ViewHolder {
-        private static final String TAG = "BillsAdapter";
-        private TextView cardTitle;
-        private TextView billDate;
-        private TextView billId;
-        private TextView billPrice;
+
+        TextView cardTitle;
+        TextView billDate;
+        TextView billId;
+        TextView billPrice;
         public BillsViewHolder(@NonNull View itemView) {
             super(itemView);
-
             cardTitle = itemView.findViewById(R.id.cardTitle);
             billDate = itemView.findViewById(R.id.billDate);
             billId = itemView.findViewById(R.id.billId);
@@ -76,14 +59,5 @@ public class BillsAdapter extends RecyclerView.Adapter<BillsAdapter.BillsViewHol
                 }
             });
         }
-
-        public void bindTo(Bill currentBill) {
-            cardTitle.setText(currentBill.getTitle());
-            billDate.setText(currentBill.getDate());
-            billId.setText(currentBill.getId());
-            billPrice.setText(currentBill.getPrice());
-        }
     }
 }
-
-
