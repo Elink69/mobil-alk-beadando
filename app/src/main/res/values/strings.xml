@@ -22,7 +22,6 @@
     <string name="profile">Profil</string>
     <string name="submit_meter">Mérőóra állás bejelentés</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="bills_page_fragment">Bills Page Fragment</string>
     <string name="profile_page_fragment">Profile Page Fragment</string>
     <!-- TODO: Vége-->
     <string name="meter_state">Mérőóra állás</string>
@@ -38,8 +37,10 @@
     <string name="ervenyesIdoszak">Érvényes időszak:</string>
     <string name="befizetesIdopontja">Befizetés időpontja:</string>
     <string name="befizetesIdopontjaPlaceholder">2024/06/14 16:54</string>
+    <string name="oraId">Mérőóra azonosító</string>
 
     <string-array name="cardTitles">
+        <item>Havi fogyasztási díj</item>
         <item>Havi fogyasztási díj</item>
         <item>Havi fogyasztási díj</item>
         <item>Havi fogyasztási díj</item>
@@ -53,16 +54,17 @@
     </string-array>
 
     <string-array name="billDates">
+        <item>2023/06/11-2023/07/10</item>
+        <item>2023/07/11-2023/08/10</item>
+        <item>2023/08/11-2023/09/10</item>
+        <item>2023/09/11-2023/10/10</item>
+        <item>2023/10/11-2023/11/10</item>
+        <item>2023/11/11-2023/12/10</item>
+        <item>2023/12/11-2024/01/10</item>
         <item>2024/01/11-2024/02/10</item>
         <item>2024/02/11-2024/03/10</item>
         <item>2024/03/11-2024/04/10</item>
         <item>2024/04/11-2024/05/10</item>
-        <item>2024/05/11-2024/06/10</item>
-        <item>2024/06/11-2024/07/10</item>
-        <item>2024/07/11-2024/08/10</item>
-        <item>2024/08/11-2024/09/10</item>
-        <item>2024/09/11-2024/10/10</item>
-        <item>2024/10/11-2024/11/10</item>
     </string-array>
 
     <string-array name="billIds">
@@ -76,20 +78,22 @@
         <item>123456789-123456789-8</item>
         <item>123456789-123456789-9</item>
         <item>123456789-123456789-10</item>
+        <item>123456789-123456789-11</item>
     </string-array>
 
-    <string-array name="billPrices">
-        <item>14287 Ft</item>
-        <item>21954 Ft</item>
-        <item>17362 Ft</item>
-        <item>28493 Ft</item>
-        <item>15678 Ft</item>
-        <item>23109 Ft</item>
-        <item>23109 Ft</item>
-        <item>23109 Ft</item>
-        <item>23109 Ft</item>
-        <item>23109 Ft</item>
-    </string-array>
+    <integer-array name="billPrices">
+        <item>14582</item>
+        <item>28963</item>
+        <item>17329</item>
+        <item>12658</item>
+        <item>23785</item>
+        <item>19426</item>
+        <item>21054</item>
+        <item>15987</item>
+        <item>26321</item>
+        <item>13845</item>
+        <item>24698</item>
+    </integer-array>
 
     <array name="billIsPaid">
         <item>true</item>
@@ -102,5 +106,6 @@
         <item>true</item>
         <item>true</item>
         <item>true</item>
+        <item>false</item>
     </array>
 </resources>

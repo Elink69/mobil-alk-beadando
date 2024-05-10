@@ -3,15 +3,15 @@ package com.gzn1ev.aramlejelentes;
 public class Bill {
     private String mId;
     private String title;
-    private String price;
+    private int price;
     private String date;
     private boolean isPaid;
     private String userId;
 
     public Bill() {}
 
-    public Bill(String id, String title, String price, String date, boolean isPaid, String userId) {
-        this.mId = id;
+    public Bill(String mId, String title, int price, String date, boolean isPaid, String userId) {
+        this.mId = mId;
         this.title = title;
         this.price = price;
         this.date = date;
@@ -27,7 +27,7 @@ public class Bill {
         return title;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -43,7 +43,7 @@ public class Bill {
         return userId;
     }
 
-    public void setId(String id) {
+    public void setMId(String id) {
         this.mId = id;
     }
 
@@ -51,7 +51,7 @@ public class Bill {
         this.title = title;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

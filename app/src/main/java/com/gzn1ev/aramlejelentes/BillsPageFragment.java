@@ -19,7 +19,7 @@ import com.google.firebase.firestore.Query;
 
 public class BillsPageFragment extends Fragment {
 
-    private static final String TAG = BillsPageFragment.class.toString();
+    private static final String TAG = BillsPageFragment.class.getName();
     private FirebaseUser user;
     private FirebaseFirestore firestore;
     private CollectionReference billsCollection;
@@ -31,11 +31,19 @@ public class BillsPageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_bills_page, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.billsRecycleView);
         firestore = FirebaseFirestore.getInstance();
-
-        initializeData();
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         billsCollection = firestore.collection("bills");
-        Query query = billsCollection.orderBy("date", Query.Direction.DESCENDING);
+        Query query = billsCollection.orderBy("date", Query.Direction.DESCENDING).whereEqualTo("userId", user.getEmail());
+        query.get().addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (queryDocumentSnapshots.isEmpty()){
+                        Log.d(TAG, "query result is empty");
+                        initializeData();
+                    }else{
+                        Log.d(TAG, "onCreateView: " + queryDocumentSnapshots.size());
+                    }
+                });
+
         FirestoreRecyclerOptions<Bill> options = new FirestoreRecyclerOptions.Builder<Bill>()
                 .setQuery(query, Bill.class)
                 .build();
@@ -62,26 +70,19 @@ public class BillsPageFragment extends Fragment {
     private void initializeData(){
         String[] cardTitle = getResources().getStringArray(R.array.cardTitles);
         String[] billId = getResources().getStringArray(R.array.billIds);
-        String[] billPrice = getResources().getStringArray(R.array.billPrices);
+        int[] billPrice = getResources().getIntArray(R.array.billPrices);
         String[] billDate = getResources().getStringArray(R.array.billDates);
         TypedArray billIsPaid = getResources().obtainTypedArray(R.array.billIsPaid);
 
-        firestore.collection("bills").limit(1).get().addOnSuccessListener(queryDocumentSnapshots -> {
-            if (!queryDocumentSnapshots.isEmpty()){
-                Log.d(TAG, "initializeData: Már vannak adatok az adatbázisban");
-            }else{
-                user = FirebaseAuth.getInstance().getCurrentUser();
-
-                for (int i = 0; i < cardTitle.length; i++) {
-                    firestore.collection("bills").document(billId[i])
-                                    .set(new Bill(billId[i],
-                                        cardTitle[i],
-                                        billPrice[i],
-                                        billDate[i],
-                                        billIsPaid.getBoolean(i, true),
-                                        user.getEmail()));
-                }
-            }
-        });
+        for (int i = 0; i < cardTitle.length; i++) {
+            firestore.collection("bills").document()
+                            .set(new Bill(billId[i],
+                                cardTitle[i],
+                                billPrice[i],
+                                billDate[i],
+                                billIsPaid.getBoolean(i, true),
+                                user.getEmail()));
+        }
+        billIsPaid.recycle();
     }
 }

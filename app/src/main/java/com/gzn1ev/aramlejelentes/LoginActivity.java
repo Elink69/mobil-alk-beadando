@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -46,15 +47,11 @@ public class LoginActivity extends AppCompatActivity {
         String userNameStr = userNameEditText.getText().toString();
         String passwordStr = passwordEditText.getText().toString();
 
-        mAuth.signInWithEmailAndPassword(userNameStr, passwordStr).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()){
-                    Log.d(TAG, "Sikeres bejelentkezés");
-                    startApp();
-                }else{
-                    Log.d(TAG, "Sikertelen bejelentkezés");
-                }
+        mAuth.signInWithEmailAndPassword(userNameStr, passwordStr).addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()){
+                startApp();
+            }else{
+                Toast.makeText(LoginActivity.this, "Email cím vagy jelszó hibás", Toast.LENGTH_LONG).show();
             }
         });
     }

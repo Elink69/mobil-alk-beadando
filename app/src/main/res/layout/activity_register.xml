@@ -13,6 +13,7 @@
         android:text="@string/register"
         android:textAlignment="center"
         android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,18 +29,19 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="@string/email"
         android:importantForAutofill="no"
@@ -50,12 +52,13 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextName"
-        app:layout_constraintVertical_bias="0.047" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="@string/password"
         android:importantForAutofill="no"
@@ -66,7 +69,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <EditText
         android:id="@+id/editTextPasswordAgain"
@@ -77,37 +80,56 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <EditText
+        android:id="@+id/editTextMeroOra"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/oraId"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordAgain"
+        app:layout_constraintVertical_bias="0.050000012" />
 
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/md_light_blue_A700"
         android:minHeight="48dp"
         android:onClick="register"
         android:text="@string/register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordAgain" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextMeroOra"
+        app:layout_constraintVertical_bias="0.35000002" />
 
     <Button
         android:id="@+id/buttonCancel"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/md_light_blue_A700"
         android:minHeight="48dp"
         android:onClick="cancel"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonRegister"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordAgain" />
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/editTextMeroOra"
+        app:layout_constraintVertical_bias="0.35000002" />
 </androidx.constraintlayout.widget.ConstraintLayout>

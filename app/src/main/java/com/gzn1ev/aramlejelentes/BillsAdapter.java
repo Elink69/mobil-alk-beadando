@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
+import java.util.Locale;
+
 public class BillsAdapter extends FirestoreRecyclerAdapter<Bill, BillsAdapter.BillsViewHolder> {
 
     private Context context;
@@ -29,7 +31,7 @@ public class BillsAdapter extends FirestoreRecyclerAdapter<Bill, BillsAdapter.Bi
         billsViewHolder.cardTitle.setText(bill.getTitle());
         billsViewHolder.billId.setText(bill.getMId());
         billsViewHolder.billDate.setText(bill.getDate());
-        billsViewHolder.billPrice.setText(bill.getPrice());
+        billsViewHolder.billPrice.setText(String.format(Locale.getDefault(),"%d Ft", bill.getPrice()));
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_row);
         billsViewHolder.itemView.startAnimation(animation);
     }

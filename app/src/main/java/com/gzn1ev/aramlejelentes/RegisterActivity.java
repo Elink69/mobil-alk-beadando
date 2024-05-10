@@ -2,24 +2,23 @@ package com.gzn1ev.aramlejelentes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.gzn1ev.aramlejelentes.data.LoginDataSource;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -29,7 +28,10 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText emailEditText;
     private EditText passwordEditText;
     private EditText passwordAgainEditText;
+    private EditText meroOraIdEditText;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore firestore;
+    private CollectionReference userDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,11 @@ public class RegisterActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.editTextEmail);
         passwordEditText = findViewById(R.id.editTextPassword);
         passwordAgainEditText = findViewById(R.id.editTextPasswordAgain);
+        meroOraIdEditText = findViewById(R.id.editTextMeroOra);
         mAuth = FirebaseAuth.getInstance();
+
+        firestore = FirebaseFirestore.getInstance();
+        userDetails = firestore.collection("userDetails");
     }
 
     public void register(View view) {
@@ -53,19 +59,20 @@ public class RegisterActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String passwordAgain = passwordAgainEditText.getText().toString();
+        String meroOraId = meroOraIdEditText.getText().toString();
+        String currentDate = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
 
         if(!password.equals(passwordAgain)){
-            Log.d(LOG_TAG, "Passwords must match");
+            Toast.makeText(this, "A két jelszó nem egyezik", Toast.LENGTH_LONG).show();
             return;
         }
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if(task.isSuccessful()){
-                Log.d(LOG_TAG, "Sikeres regisztráció");
+                userDetails.add(new UserDetails(name, email, currentDate, meroOraId));
                 startApp();
-                //start app
             }
             else{
-                Log.d(LOG_TAG, "Sikertelen regisztráció: " + task.getException().getMessage());
+                Toast.makeText(this, "Sikertelen regisztráció", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
