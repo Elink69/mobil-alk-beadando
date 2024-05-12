@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138641918356",
+    "project_id": "aramlejelentes-620f0",
+    "storage_bucket": "aramlejelentes-620f0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138641918356:android:79e4737086d2bb2fc92781",
+        "android_client_info": {
+          "package_name": "com.gzn1ev.aramlejelentes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqvXZJscrID0UU_NwrD85qJaYhb6mGNL8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
