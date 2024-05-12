@@ -72,6 +72,8 @@ public class BillsPageFragment extends Fragment {
         String[] billId = getResources().getStringArray(R.array.billIds);
         int[] billPrice = getResources().getIntArray(R.array.billPrices);
         String[] billDate = getResources().getStringArray(R.array.billDates);
+        String[] billsPaidDate = getResources().getStringArray(R.array.billsPaidDate);
+        billsPaidDate[10] = null;
         TypedArray billIsPaid = getResources().obtainTypedArray(R.array.billIsPaid);
 
         for (int i = 0; i < cardTitle.length; i++) {
@@ -80,6 +82,7 @@ public class BillsPageFragment extends Fragment {
                                 cardTitle[i],
                                 billPrice[i],
                                 billDate[i],
+                                billsPaidDate[i],
                                 billIsPaid.getBoolean(i, true),
                                 user.getEmail()));
         }

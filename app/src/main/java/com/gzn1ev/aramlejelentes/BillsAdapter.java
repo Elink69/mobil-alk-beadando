@@ -31,7 +31,7 @@ public class BillsAdapter extends FirestoreRecyclerAdapter<Bill, BillsAdapter.Bi
         billsViewHolder.cardTitle.setText(bill.getTitle());
         billsViewHolder.billId.setText(bill.getMId());
         billsViewHolder.billDate.setText(bill.getDate());
-        billsViewHolder.billPrice.setText(String.format(Locale.getDefault(),"%d Ft", bill.getPrice()));
+        billsViewHolder.billPrice.setText(String.format(Locale.GERMANY,"%,d Ft", bill.getPrice()));
         Animation animation = AnimationUtils.loadAnimation(context, R.anim.slide_in_row);
         billsViewHolder.itemView.startAnimation(animation);
     }
@@ -57,6 +57,7 @@ public class BillsAdapter extends FirestoreRecyclerAdapter<Bill, BillsAdapter.Bi
             itemView.setOnClickListener(v -> {
                 if (v instanceof CardView){
                     Intent intent = new Intent(context, BillDetails.class);
+                    intent.putExtra("billId", billId.getText().toString());
                     context.startActivity(intent);
                 }
             });

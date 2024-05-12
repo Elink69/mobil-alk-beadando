@@ -38,6 +38,18 @@
     <string name="befizetesIdopontja">Befizetés időpontja:</string>
     <string name="befizetesIdopontjaPlaceholder">2024/06/14 16:54</string>
     <string name="oraId">Mérőóra azonosító</string>
+    <string name="awaitingPayment">Befizetésre vár</string>
+    <string name="personalDetails">Személyes adatok</string>
+    <string name="nameText">Név:</string>
+    <string name="namePlaceholder">name placeholder</string>
+    <string name="emailField">Email:</string>
+    <string name="emailPlaceholder">email placeholder</string>
+    <string name="meterText">Mérőóra azonosítója:</string>
+    <string name="meterPlaceholder">Mérőóra placeholder</string>
+    <string name="deleteWrongRecord">Hibás lejelentés törlése</string>
+    <string name="lejelentesDate">Lejelentés időpontja:</string>
+    <string name="lejelentettFogyasztas">Lejelentett fogyasztás:</string>
+    <string name="delete">Törlés</string>
 
     <string-array name="cardTitles">
         <item>Havi fogyasztási díj</item>
@@ -94,6 +106,20 @@
         <item>13845</item>
         <item>24698</item>
     </integer-array>
+
+    <string-array name="billsPaidDate">
+        <item>2023/07/12</item>
+        <item>2023/08/12</item>
+        <item>2023/09/12</item>
+        <item>2023/10/12</item>
+        <item>2023/11/12</item>
+        <item>2023/12/12</item>
+        <item>2024/01/12</item>
+        <item>2024/02/12</item>
+        <item>2024/03/12</item>
+        <item>2024/04/12</item>
+        <item>nem</item>
+    </string-array>
 
     <array name="billIsPaid">
         <item>true</item>

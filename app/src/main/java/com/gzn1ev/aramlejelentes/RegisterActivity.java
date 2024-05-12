@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -68,8 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if(task.isSuccessful()){
-                userDetails.add(new UserDetails(name, email, currentDate, meroOraId));
-                startApp();
+                userDetails.document(email).set(new UserDetails(name, email, currentDate, meroOraId)).addOnSuccessListener(unused -> startApp());
             }
             else{
                 Toast.makeText(this, "Sikertelen regisztráció", Toast.LENGTH_LONG).show();

@@ -1,20 +1,25 @@
 package com.gzn1ev.aramlejelentes;
 
+import androidx.annotation.Nullable;
+
 public class Bill {
     private String mId;
     private String title;
     private int price;
     private String date;
+    @Nullable
+    private String paidDate;
     private boolean isPaid;
     private String userId;
 
     public Bill() {}
 
-    public Bill(String mId, String title, int price, String date, boolean isPaid, String userId) {
+    public Bill(String mId, String title, int price, String date, @Nullable String paidDate, boolean isPaid, String userId) {
         this.mId = mId;
         this.title = title;
         this.price = price;
         this.date = date;
+        this.paidDate = paidDate;
         this.isPaid = isPaid;
         this.userId = userId;
     }
@@ -34,6 +39,8 @@ public class Bill {
     public String getDate() {
         return date;
     }
+
+    public String getPaidDate() { return paidDate; }
 
     public boolean isPaid() {
         return isPaid;
